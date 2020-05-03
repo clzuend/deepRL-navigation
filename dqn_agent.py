@@ -30,7 +30,7 @@ class Agent():
             state_size (int): dimension of each state
             action_size (int): dimension of each action
             seed (int): random seed
-            flavor (str): flavor of the network - plain, double, dueling
+            flavor (str): flavor of the network - plain, double, dueling, double-dueling
         """
         self.state_size = state_size
         self.action_size = action_size
@@ -43,7 +43,7 @@ class Agent():
             self.qnetwork_local = QNetwork(state_size, action_size, seed, hidden_sizes).to(device)
             self.qnetwork_target = QNetwork(state_size, action_size, seed, hidden_sizes).to(device)
         # Dueling Q-Network
-        if self.flavor == 'dueling':
+        if self.flavor == 'dueling' or self.flavor == 'double-dueling':
             self.qnetwork_local = DuelingQNetwork(state_size, action_size, seed, hidden_sizes).to(device)
             self.qnetwork_target = DuelingQNetwork(state_size, action_size, seed, hidden_sizes).to(device)
         self.optimizer = optim.Adam(self.qnetwork_local.parameters(), lr=LR)
@@ -103,7 +103,7 @@ class Agent():
         if self.flavor == 'plain' or self.flavor == 'dueling':
             # ... according to target model for Double DQN
             best_actions = self.qnetwork_target(next_states).detach().argmax(dim=1).unsqueeze(1)
-        if self.flavor == 'double':
+        if self.flavor == 'double' or self.flavor == 'double-dueling':
             # ... according to local model for Double DQN
             best_actions = self.qnetwork_local(next_states).detach().argmax(dim=1).unsqueeze(1)
         # Maximal predicted Q value for next state from target model

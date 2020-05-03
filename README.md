@@ -32,6 +32,7 @@ The ``Agent`` class currently supports three types of agents that can be passed 
 - ``plain``: Standard DQN agent.
 - ``double``: Double DQN agent.
 - ``dueling``: Dueling DQN agent.
+- ``double-dueling``: Double dueling DQN agent
 
 ```python
 agent = Agent(state_size=state_size, action_size=action_size, seed=0, hidden_sizes = [64, 64], flavor='plain')
