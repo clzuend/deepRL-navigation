@@ -4,6 +4,9 @@
 
 In this project, we use deep reinforcement learning (specifically variations of DQN) to train an agent to navigate a Unity environment and to collect yellow but not blue bananas.
 
+<img src="double-duel.gif" width="60%" align="top-left" alt="" title="Trained Agent" />
+
+
 ### Setup
 
 #### Download and install deepRL-navigation
