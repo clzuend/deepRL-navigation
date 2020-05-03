@@ -49,7 +49,7 @@ agent = Agent(state_size=state_size, action_size=action_size, seed=0, hidden_siz
 
 The ``Agent`` class additionally has a ``show_network()`` method to visualize the graph of the network:
 ````python
-agent.qnetwork_local.show_network()
+agent.agent.show_network()
 ```
 
 All agents use a network with two hidden layers. The number of neurons in each layer can be passed in a list to the ``hidden_sizes`` parameter. 

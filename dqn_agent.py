@@ -7,6 +7,8 @@ from model import QNetwork, DuelingQNetwork
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
+from torch.autograd import Variable
+from torchviz import make_dot
 
 BUFFER_SIZE = int(1e5)  # replay buffer size
 BATCH_SIZE = 64         # minibatch size
@@ -50,6 +52,11 @@ class Agent():
         self.memory = ReplayBuffer(action_size, BUFFER_SIZE, BATCH_SIZE, seed)
         # Initialize time step (for updating every UPDATE_EVERY steps)
         self.t_step = 0
+    
+    def show_network(self):
+        x = Variable(torch.randn(1,self.state_size))
+        y = self.qnetwork_local(x)
+        return make_dot(y, params=dict(list(self.qnetwork_local.named_parameters())))
     
     def step(self, state, action, reward, next_state, done):
         # Save experience in replay memory
