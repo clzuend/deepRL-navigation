@@ -1,3 +1,6 @@
+# git ignore
+.gitignore
+
 # pycache
 __pycache__/
 
