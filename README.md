@@ -7,9 +7,11 @@ In this project, we use deep reinforcement learning (specifically variations of 
 ### Setup
 
 #### Download and install deepRL-navigation
+```
 clone git https://github.com/clzuend/deepRL-navigation.git
 cd deepRL-navigation
 pip install .
+```
 
 #### Download the Unity Banana Environment
 1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
