@@ -58,4 +58,5 @@ class DuelingQNetwork(nn.Module):
         x = F.relu(self.fc2(x))
         adv = F.relu(self.fc3adv(x))
         val = F.relu(self.fc3val(x))
-        return val + (adv - adv.max(dim=1, keepdim=True))
+        #return val + (adv - adv.mean(dim=1, keepdim=True))
+        return val + adv
