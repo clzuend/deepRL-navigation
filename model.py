@@ -1,8 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-#from torch.autograd import Variable
-#from torchviz import make_dot
 
 class QNetwork(nn.Module):
 
@@ -30,11 +28,6 @@ class QNetwork(nn.Module):
         x = F.relu(self.fc1(state))
         x = F.relu(self.fc2(x))
         return self.fc3(x)
-    
-#    def show_network(self):
-#        x = Variable(torch.randn(1,self.state_size))
-#        y = self(x)
-#        return make_dot(y, params=dict(list(self.named_parameters())))
     
 class DuelingQNetwork(nn.Module):
     
@@ -65,9 +58,4 @@ class DuelingQNetwork(nn.Module):
         x = F.relu(self.fc2(x))
         adv = F.relu(self.fc3adv(x))
         val = F.relu(self.fc3val(x))
-        return val + (adv - adv.mean(dim=1, keepdim=True))
-    
-    def show_network(self):
-        x = Variable(torch.randn(1,self.state_size))
-        y = self(x)
-        return make_dot(y, params=dict(list(self.named_parameters())))
+        return val + (adv - adv.max(dim=1, keepdim=True))
