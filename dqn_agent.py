@@ -30,6 +30,7 @@ class Agent():
             state_size (int): dimension of each state
             action_size (int): dimension of each action
             seed (int): random seed
+            hidden_sizes (list): list of neurons in each layer
             flavor (str): flavor of the network - plain, double, dueling, double-dueling
         """
         self.state_size = state_size
