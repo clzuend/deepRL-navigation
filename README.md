@@ -46,6 +46,6 @@ The ``Agent`` class additionally has a ``show_network()`` method to visualize th
 agent.agent.show_network()
 ```
 
-All agents use a network with two hidden layers. The number of neurons in each layer can be passed in a list to the ``hidden_sizes`` parameter. 
+The number of layers (at least one) and their neurons can be passed in a list to the ``hidden_sizes`` parameter. The default is ``hidden_sizes = [64,64]``, i.e., two layers with 64 neurons each.
 
 Additional information can be found in the project report: `Report.pdf`
