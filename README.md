@@ -7,6 +7,12 @@ In this project, we use deep reinforcement learning (specifically variations of 
 <img src="double-duel.gif" width="60%" align="top-left" alt="" title="Trained Agent" />
 
 
+In the environment, an agent navigates a square world to collect yellow bananas, while avoiding blue bananas. Each yellow banana leads to a reward of +1.0, while each blue banana gives a reward of -1.0. The goal is to achieve an average score of at 13 over 100 consecutive episodes.
+
+The agent observes 37 variables corresponding to its velocity and a ray-based perception of the environment in its forward direction. 
+
+There are four discrete actions: moving forward, moving backward, turning left, and turning right.
+
 ### Setup
 
 #### Download and install deepRL-navigation
